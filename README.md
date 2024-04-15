@@ -1,6 +1,12 @@
 # Domino Classification with Python and Scikit-Learn
-
+------------
 This repository contains a Python implementation for classifying dominos using Scikit-Learn.
+------------
+<h3 align="center">Dataset validation / Inference result</h3>
+<p align="center" width="100%">
+    <img width="13%" alt="Dataset validation" src="docs/dataset.png" title="Dataset validation" hspace="10"> 
+    <img width="10%" alt="Inference result" src="docs/prediction.png" title="Inference result" hspace="10"/>
+</p>
 
 ## Installation
 
