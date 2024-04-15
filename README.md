@@ -26,9 +26,17 @@ $ pip install -r requirements.txt
 
 1. **Dataset Preparation**: Run `dataset.py` to split and create datasets from a large domino set image.
 
+``` bash
+$ python dataset.py -i <input_image_path>
+```
+
 2. **Contour Validation and Display**: Utilize `dots.py` for contour validation and display, which is used by `dataset.py`.
 
 3. **Training and Validation**: Use `main.py` for training and validation of the classifier.
+
+``` bash
+$ python main.py [-o OUTPUT] [-d DATASET]
+```
 
 4. **Inferencing**: Perform inferencing using `predict.py` based on the created dataset.
 
