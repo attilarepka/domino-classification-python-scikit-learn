@@ -1,33 +1,29 @@
+import argparse
 import os
-import re
 import pickle
 import random
-import argparse
+import re
 
 import numpy as np
-
 from skimage.io import imread
 from skimage.transform import resize
 from skimage.util import random_noise
-from sklearn.svm import SVC
-from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVC
 
 parser = argparse.ArgumentParser()
 
 parser.add_argument(
-    "-o", "--output",
-    help="Output model file",
-    required=False,
-    default="model.pkl")
+    "-o", "--output", help="Output model file", required=False, default="model.pkl"
+)
 
 parser.add_argument(
-    "-d", "--dataset",
-    help="Input dataset directory",
-    required=False,
-    default="dataset")
+    "-d", "--dataset", help="Input dataset directory", required=False, default="dataset"
+)
 
 args = parser.parse_args()
+
 
 data = []
 labels = []

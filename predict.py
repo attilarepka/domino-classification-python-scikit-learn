@@ -1,7 +1,8 @@
-import re
 import os
-import cv2
 import pickle
+import re
+
+import cv2
 import numpy as np
 from skimage.io import imread
 from skimage.transform import resize
@@ -26,7 +27,7 @@ for file in os.listdir(input_dir):
     pre_img = cv2.resize(pre_img, None, fx=3, fy=3)
 
     img = img.reshape(1, -1)
-    actual = re.findall(r'\d+', file)
+    actual = re.findall(r"\d+", file)
     actual = [int(num) for num in actual]
 
     actual = sum(actual)
@@ -37,8 +38,15 @@ for file in os.listdir(input_dir):
     if prediction == actual:
         accurate_count += 1
 
-    cv2.putText(pre_img, f"{prediction}, {probability:.2f}",
-                (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+    cv2.putText(
+        pre_img,
+        f"{prediction}, {probability:.2f}",
+        (10, 40),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        1,
+        (0, 0, 0),
+        2,
+    )
     cv2.imshow("Prediction", pre_img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
