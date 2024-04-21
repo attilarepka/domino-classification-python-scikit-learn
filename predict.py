@@ -9,13 +9,16 @@ from skimage.transform import resize
 
 model = pickle.load(open("model.pkl", "rb"))
 
-input_dir = "./dataset"
+INPUT_DIR = "./dataset"
+
+cv2.namedWindow("predict")
+cv2.setWindowTitle("predict", "Press ENTER to continue, ESC to exit")
 
 file_count = 0
 accurate_count = 0
-for file in os.listdir(input_dir):
+for file in os.listdir(INPUT_DIR):
     file_count += 1
-    img = imread(os.path.join(input_dir, file), 0)
+    img = imread(os.path.join(INPUT_DIR, file), 0)
     img = resize(img, (100, 50))
 
     pre_img = cv2.cvtColor((img * 255).astype(np.uint8), cv2.COLOR_GRAY2BGR)
@@ -47,8 +50,15 @@ for file in os.listdir(input_dir):
         (0, 0, 0),
         2,
     )
-    cv2.imshow("Prediction", pre_img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+
+    cv2.imshow("predict", pre_img)
+
+    key = cv2.waitKey(0) & 0xFF
+    if key == 27:
+        exit()
+    if key == 13:
+        continue
+
+cv2.destroyAllWindows()
 
 print("Accuracy: {}%".format(accurate_count / file_count * 100))
