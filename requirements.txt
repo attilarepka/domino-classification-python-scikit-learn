@@ -1,4 +1,4 @@
-numpy==2.4.1
+numpy==2.4.2
 opencv_python==4.13.0.90
 scikit_learn==1.8.0
 skimage==0.22.0
